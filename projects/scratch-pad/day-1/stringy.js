@@ -14,7 +14,9 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+
+    // .length will tell you the total number of indexes in a string
+    return string.length;
 
 
     // YOUR CODE ABOVE HERE //
@@ -26,7 +28,8 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+    //.toLowerCase - forces all indexes of a string to lowercase
+    return string.toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -37,6 +40,8 @@ function toLowerCase(string) {
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
+    // .toUpperCase - obvious, see previous
+    return string.toUpperCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -58,7 +63,11 @@ function toUpperCase(string) {
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+    //  .replace - forward slashes are beginning and end of pattern, 
+    //  \s+ is code for space character, 
+    //  g means to search the whole string for spaces, 
+    //  '-' is the replacement
+    return string.replace(/\s+/g, '-').toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -78,7 +87,14 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-    
+    // create new string with value of input string's first character in lowercase
+    let lowString = string[0].toLowerCase();
+    // do the same for char input
+    let lowChar = char.toLowerCase();
+    // return boolean loosely comparing new variables
+    return (lowString == lowChar);
+
+
 
     // YOUR CODE ABOVE HERE //
 }
@@ -97,7 +113,11 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    
+    // create new string with value of strings last character to lowercase using string.length property
+    let lowString = string[string.length - 1].toLowerCase();
+    let lowChar = char.toLowerCase();
+    return (lowString == lowChar);
 
 
     // YOUR CODE ABOVE HERE //
@@ -111,7 +131,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //return new string combining the two strings into one using .concat
+    return stringOne.concat(stringTwo);
 
     // YOUR CODE ABOVE HERE //
 }
@@ -129,6 +150,7 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
+    return args.join('');
 
 
     // YOUR CODE ABOVE HERE //
@@ -146,7 +168,8 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //use ternary operator to compare length of two strings and return the greater one
+    return stringOne.length > stringTwo.length ? stringOne : stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -161,7 +184,10 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    // use nested ternary operator to account for the third possible out come of the strings being alphabetically equivalent
+    return (stringOne === stringTwo) ? 0
+    : (stringOne < stringTwo) ? 1
+    : -1;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -177,8 +203,9 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
-
+    return (stringOne === stringTwo) ? 0
+    : (stringOne > stringTwo) ? 1
+    : -1;
 
     // YOUR CODE ABOVE HERE //
 }

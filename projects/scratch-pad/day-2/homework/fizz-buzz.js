@@ -13,7 +13,17 @@
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
 
-
+    for (let i = 1; i <= 100; i++) {
+        //use nested ternary operators for each condition required
+        // if value is divisible by 5x3 console.log fizzbuzz
+        (i % 15 == 0) ? console.log('FizzBuzz')
+        // if divisible by 5 and not 3 log buzz
+        : (i % 5 == 0) ? console.log('Buzz')
+        //if divisible by 3 and not 5 log fizz
+        : (i % 3 == 0) ? console.log('Fizz')
+        // else log numeric value
+        : console.log(i);
+    }
 
     // YOUR CODE GOES ABOVE HERE //
 }

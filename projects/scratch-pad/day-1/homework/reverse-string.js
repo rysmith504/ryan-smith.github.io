@@ -21,10 +21,10 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    //split - turns string into array with each index of string as different element
+    //reverse - reverses order of elements
+    // join - turns arrray into string, joining all the indexes together
+    return input.split('').reverse().join('');
     // YOUR CODE GOES ABOVE HERE //
 }
 
