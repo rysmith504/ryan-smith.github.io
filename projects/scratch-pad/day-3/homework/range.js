@@ -24,10 +24,34 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     
+    /*
+    i: two integer values
+    o: return array of all integer values between the inputs, inclusively and in numerical order
+    c: create array to collect outputs to be returned, use a loop, and .push
+    e: start value is first index; end value is last index
+    */
+    // create array literal to store integer values
+    const arr = [];
+    // use if else if statement for when start is greater than end, vice versa, and equal
+    if (start > end) {
+        // when start is greater than end, integer values should count down
+        for (let i = start; i >= end; i--) {
+            // use .push to add integer values of i to the array
+            arr.push(i);
+        }
+        //opposite scenario
+    } else if (start < end) {
+        for (let i = start; i <= end; i++) {
+            arr.push(i);
+        }
+        // else statement covers when start and end are equal, simply log the start integer
+    } else {
+        arr.push(start);
+    }
+    //return updated array
+    return arr;
     
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+        // YOUR CODE GOES ABOVE HERE //
 }
 
 

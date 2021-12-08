@@ -36,10 +36,19 @@
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
     
+    //begin with if statement using comparison operator for when hour is < 12
+    //continue with this pattern for each ensuing threshold
+    if (hour < 12) {
+        console.log('Good Morning!');
+    } else if (hour < 17) {
+        console.log('Good Afternoon!');
+    } else if (hour < 22) {
+        console.log('Good Evening!');
+    } else {
+        console.log('Good Night!');
+    }
     
-    
-    
-    // YOUR CODE ABOVE HERE //
+        // YOUR CODE ABOVE HERE //
 }
 
 /*

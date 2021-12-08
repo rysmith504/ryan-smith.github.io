@@ -186,7 +186,7 @@ function sortAscending(stringOne, stringTwo) {
 
     // use nested ternary operator to account for the third possible out come of the strings being alphabetically equivalent
     return (stringOne === stringTwo) ? 0
-    : (stringOne < stringTwo) ? 1
+    : (stringOne > stringTwo) ? 1
     : -1;
 
     // YOUR CODE ABOVE HERE //
@@ -204,7 +204,7 @@ function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
     return (stringOne === stringTwo) ? 0
-    : (stringOne > stringTwo) ? 1
+    : (stringOne < stringTwo) ? 1
     : -1;
 
     // YOUR CODE ABOVE HERE //

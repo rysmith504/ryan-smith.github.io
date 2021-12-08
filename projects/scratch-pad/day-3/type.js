@@ -14,9 +14,17 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+
+    /*
+    i: some value
+    o: boolean, answering whether or not value is array
+    c: 
+    e:
+    use Array.isArray method on value input
+    this creates a boolean
+    return this test and it will state true or false
+    */
+    return Array.isArray(value);
     
     // YOUR CODE ABOVE HERE //
 }
@@ -32,8 +40,28 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    /*
+    i:
+    o:
+    c:
+    e:
+    */
+
+    if (Array.isArray(value) === true) {
+        return false;
+    } if (value === null) {
+        return false;
+    } if (value instanceof Date) {
+        return false;
+    } if (typeof value === 'number') {
+        return false;
+    } if (typeof value === 'string') {
+        return false;
+    } if (typeof value === 'boolean') {
+        return false;
+    } if (typeof value === 'object') {
+        return true;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -47,7 +75,21 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
+if (value === null) {
+    return false;
+} if (value instanceof Date) {
+    return false;
+} if (typeof value === 'number') {
+    return false;
+} if (typeof value === 'string') {
+    return false;
+} if (typeof value === 'boolean') {
+    return false;
+} if (typeof value === 'object') {
+    return true;
+} if (Array.isArray(value) === true) {
+    return false;
+} 
     
     
     // YOUR CODE ABOVE HERE //
@@ -75,7 +117,25 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    if (typeof value === 'function') {
+        return 'function'
+    } if (value === null) {
+        return 'null';
+    } if (value instanceof Date) {
+        return 'date';
+    } if (typeof value === 'number') {
+        return 'number';
+    } if (typeof value === 'string') {
+        return 'string';
+    } if (typeof value === 'boolean') {
+        return 'boolean';
+    } if (Array.isArray(value) === true) {
+        return 'array';
+    } if (value === undefined) {
+        return 'undefined';
+    } if (typeof value === 'object') {
+        return 'object';
+    }
     
     
     // YOUR CODE ABOVE HERE //
