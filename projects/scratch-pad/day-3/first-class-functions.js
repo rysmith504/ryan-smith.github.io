@@ -71,7 +71,7 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    let mod = function(x){
+    function mod(x) {
         return modify(x);
     }
     let arr = strings.map(mod);
@@ -92,9 +92,13 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    for (var i =0; i < strings.length; i++) {
+        if(test(strings[i]) === false) {
+            return false;
+        } 
+    } 
+    return true;
+       
     // YOUR CODE ABOVE HERE //
 }
 
