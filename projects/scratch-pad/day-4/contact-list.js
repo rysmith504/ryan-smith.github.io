@@ -75,7 +75,12 @@ function makeContactList() {
             }
         },
         printAllContactNames: function(){
-            
+            const allContacts = [];
+            for (var i = 0; i < contacts.length; i++){
+                const nameFull = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'];
+                allContacts.push(nameFull);
+            }
+            return allContacts.join('\n');
         }
     }
 }
