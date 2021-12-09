@@ -39,13 +39,7 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    /*
-    i:
-    o:
-    c:
-    e:
-    */
+
 
     if (Array.isArray(value) === true) {
         return false;
