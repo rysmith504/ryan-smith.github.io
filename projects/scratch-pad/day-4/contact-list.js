@@ -43,7 +43,6 @@ function makeContact(id, nameFirst, nameLast) {
     return contact;
 } 
 
-
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
@@ -67,6 +66,9 @@ function makeContactList() {
                 }
             }               
         },
+        /*
+        
+        */
         removeContact: function(contact){
             for (var i = 0; i < contacts.length; i++){
                 if (contacts[i] === contact){
@@ -74,12 +76,24 @@ function makeContactList() {
                 }
             }
         },
+        /*
+        i: n/a
+        o: string of all contact names
+        c: all contact full names must be separated by line break, but no line break after final name
+        e: n/a
+        */
         printAllContactNames: function(){
-            const allContacts = [];
+            // create array literal to contain all contact names
+            let allContacts = [];
+            //create for loop to iterate thru contacts
             for (var i = 0; i < contacts.length; i++){
-                const nameFull = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'];
+                // access first and last name elements of each contact
+                // combine the two names and store in new variable nameFull
+                let nameFull = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'];
+                //push nameFull variable into allContacts array
                 allContacts.push(nameFull);
             }
+            //convert allContacts to a string with all elements separated by line break and return that value
             return allContacts.join('\n');
         }
     }
@@ -87,9 +101,7 @@ function makeContactList() {
 
 
 
-
 // YOUR CODE GOES ABOVE HERE //
-
 
 
 
@@ -100,3 +112,5 @@ if((typeof process !== 'undefined') &&
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;
 }
+
+
