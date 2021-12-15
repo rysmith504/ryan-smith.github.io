@@ -15,13 +15,13 @@
                         const $lineNumber = $('<div>').addClass('line-number').text(index);
                         const $content = $('<div>').addClass('line-content').text(line);
                         return $line.append($lineNumber, $content);
-                    }, 'text'); // 'text' makes sure the JS file isn't executed;
+                    });
                     $div.append($splitElements);
                     $div.appendTo('.content');
-                })
+                }, 'text'); // 'text' makes sure the JS file isn't executed
             });
         </script>
-        <link rel="stylesheet" href="css/studies.css" type="text/css" />
+        <link rel="stylesheet" href="./css/studies.css" type="text/css" />
         <title>Studies</title>
     </head>
     <body>

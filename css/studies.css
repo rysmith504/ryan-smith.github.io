@@ -1,5 +1,5 @@
 body {
-    background: rgb(125, 198, 205);
+    background: rgb(0, 0, 0);
     color: rgb(45, 45, 45);
     padding: 10px;
     font-family: arial;
@@ -15,23 +15,26 @@ header {
 
 /* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
+    background: rgb(230, 172, 0);
     margin: 0 auto;
+    margin-bottom: 20px;
     display: flex;
     padding: 10px;
+    border-radius: 15px 50px;
 }
 nav header {
     display: flex;
     align-items: center;
     color: rgb(255, 255, 255);
     flex: 1;
+    margin: 0;
 }
 nav ul {
     list-style-image: none;
 }
 nav li {
     display: inline-block;
-    padding: 0 10px;
+    padding: 10px 10px;
 }
 nav a {
     text-decoration: none;
@@ -40,8 +43,9 @@ nav a {
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
+    background: rgb(230, 172, 0);
     display: flex;
+    border-radius: 15px 50px;
     padding:inherit;
 }
 [class=content] {
@@ -54,7 +58,7 @@ main {
 }
 
 .content h1, h2, h3, h4, h5, h6 {
-    margin: 10px;
+    margin: 25px;
 }
 
 .content section > a {
