@@ -100,23 +100,26 @@ function maybeNoises(object){
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    return string.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function addFriend (name, object) {
-
-}
+function addFriend(name, object) {
+    object.friends.push(name);
+    return object;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    if (object.friends === undefined){
+        return false;
+    } else return object.friends.includes(name);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -124,15 +127,34 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
-}
+    var nameList = [];
+        var endArray = [];
+        var noValue = null;
+        for(var i=0; i<array.length; i++){
+            if(name === array[i].name){
+                noValue = array[i];
+            }else{
+                nameList.push(array[i].name);
+            }
+        }
+        if(noValue === null){
+            return nameList;
+        }
+        for(var i=0; i<nameList.length; i++){
+            if(noValue.friends.indexOf(nameList[i]) < 0){
+                endArray.push(nameList[i]);
+            }
+        }
+        return endArray;
+    }
+    
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    
 }
 
 //////////////////////////////////////////////////////////////////////
