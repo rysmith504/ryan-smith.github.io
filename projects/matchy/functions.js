@@ -53,12 +53,10 @@ function remove(arry, nam){
 
 function add(arry, aniOb){
     for (let i = 0; i < arry.length; i++){
-        if (aniOb['name'] != arry[i]['name']){
-            if (aniOb['species'].length > 0 ){
-                if (aniOb['name'].length > 0){
-                   return arry.push(aniOb);
-                }
-            }
+        if ((aniOb['name'] != arry[i]['name']) 
+        && (aniOb['species'].length > 0 ) 
+        && (aniOb['name'].length > 0)){
+            return arry.push(aniOb);
         } else return;
     }
 }
