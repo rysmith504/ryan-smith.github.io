@@ -20,7 +20,9 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = function(value) {
+    return value;
+}
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +43,25 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+_.typeOf = function(value) {
+    if (Array.isArray(value) === true) {
+        return 'array';
+    } if (value === null) {
+        return 'null';
+    } if (value === undefined) {
+        return 'undefined';
+    } if (typeof value === 'number') {
+        return 'number';
+    } if (typeof value === 'string') {
+        return 'string';
+    } if (typeof value === 'boolean') {
+        return 'boolean';
+    } if (typeof value === 'object') {
+        return 'object';
+    } if (typeof value === 'function') {
+        return 'function';
+    }    
+}
 
 /** _.first
 * Arguments:
@@ -60,7 +80,18 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = function(arr, num) {
+    if (Array.isArray(arr) !== true || num <= 0) {
+        return [];
+    } if (typeof num !== 'number' || num === undefined) {
+        return arr[0];
+    } if (num > arr.length){
+        return arr;
+    } let arrNum = [];
+    for (var i = 0; i < num; i++) {
+        arrNum.push(arr[i]);
+    } return arrNum;
+}
 
 /** _.last
 * Arguments:
@@ -80,6 +111,18 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(arr, num) {
+    if (Array.isArray(arr) !== true || num <= 0) {
+        return [];
+    } if (typeof num !== 'number' || num === undefined) {
+        return arr[arr.length - 1];
+    } if (num > arr.length){
+        return arr;
+    } let arrNum = [];
+    for (var i = arr.length - 1; i >= arr.length - num; i--) {
+        arrNum.push(arr[i]);
+    } return arrNum.reverse();
+}
 
 /** _.indexOf
 * Arguments:
@@ -97,6 +140,13 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function (arr, val) {
+    for (var i = 0; i < arr.length; i++){
+        if (arr[i] === val) {
+        return i;
+        }
+    } return -Math.abs(1);
+}
 
 /** _.contains
 * Arguments:
@@ -113,6 +163,9 @@ var _ = {};
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function (arr, val) {
+    return (arr.includes(val)) ? true : false;
+}
 
 /** _.each
 * Arguments:
@@ -129,6 +182,7 @@ var _ = {};
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
 
 
 /** _.unique
