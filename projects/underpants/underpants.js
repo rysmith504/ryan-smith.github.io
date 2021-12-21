@@ -90,7 +90,8 @@ _.first = function(arr, num) {
     } let arrNum = [];
     for (var i = 0; i < num; i++) {
         arrNum.push(arr[i]);
-    } return arrNum;
+    } 
+    return arrNum;
 }
 
 /** _.last
@@ -121,7 +122,8 @@ _.last = function(arr, num) {
     } let arrNum = [];
     for (var i = arr.length - 1; i >= arr.length - num; i--) {
         arrNum.push(arr[i]);
-    } return arrNum.reverse();
+    } 
+    return arrNum.reverse();
 }
 
 /** _.indexOf
@@ -145,7 +147,8 @@ _.indexOf = function (arr, val) {
         if (arr[i] === val) {
         return i;
         }
-    } return -Math.abs(1);
+    } 
+    return -Math.abs(1);
 }
 
 /** _.contains
@@ -183,7 +186,17 @@ _.contains = function (arr, val) {
 *      -> should log "a" "b" "c" to the console
 */
 
-
+_.each = function (coll, func) {
+    if(Array.isArray(coll) === true){
+        for (var i = 0; i < coll.length; i++) {
+            func(coll[i], i, coll);
+        }
+    } else if (typeof coll === 'object') {
+        for (var key in coll) {
+            func(coll[key], key, coll)
+        }
+    }
+}
 
 /** _.unique
 * Arguments:
@@ -195,6 +208,15 @@ _.contains = function (arr, val) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(arr){
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if(_.indexOf(newArr, arr[i]) === -1) {
+            newArr.push(arr[i]);
+        }
+    } 
+    return newArr;
+}
 
 /** _.filter
 * Arguments:
@@ -212,6 +234,17 @@ _.contains = function (arr, val) {
 *   use _.each in your implementation
 */
 
+_.filter = function(arr, func){
+    const newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr) === true){
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+
 
 /** _.reject
 * Arguments:
@@ -225,6 +258,16 @@ _.contains = function (arr, val) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(arr, func){
+    const newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr) === false){
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
 
 
 /** _.partition
@@ -246,6 +289,23 @@ _.contains = function (arr, val) {
 }
 */
 
+_.partition = function(arr, func){
+    const newTrue = [];
+    const newFalse = [];
+    let arrTF = [];
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr) === true){
+            newTrue.push(arr[i]);
+        }
+    }
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr) === false){
+            newFalse.push(arr[i]);
+        }
+    }
+    arrTF = [newTrue, newFalse];
+    return arrTF;
+}
 
 /** _.map
 * Arguments:
@@ -263,6 +323,19 @@ _.contains = function (arr, val) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(coll, func){
+    let newArr = [];
+    if(Array.isArray(coll) === true){
+        for (var i = 0; i < coll.length; i++) {
+            newArr.push(func(coll[i], i, coll));
+        }
+    } else if (typeof coll === 'object') {
+        for (var key in coll) {
+            newArr.push(func(coll[key], key, coll))
+        }
+    }
+    return newArr;
+}
 
 /** _.pluck
 * Arguments:
@@ -274,6 +347,13 @@ _.contains = function (arr, val) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, property){
+    let result = array.map(function(elem){
+        return elem[property];
+    });
+    return result;
+}
 
 
 /** _.every
@@ -297,6 +377,36 @@ _.contains = function (arr, val) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, action){
+    if(action === undefined){
+     for (let i = 0; i < collection.length; i++){
+         if(collection[i] === false){
+             return false;
+         }
+     }
+     return true;
+ }
+ if(Array.isArray(collection)){
+     // loop through array
+     for (let i = 0; i < collection.length; i++){
+         // call function on each index
+         if(!(action(collection[i], i, collection))){
+             return false;
+         }
+     }
+     return true;
+ }
+ else if (typeof collection === 'object'){
+     // loop through object
+     for (var key in collection){
+         // call function on each property
+         if(!(action(collection[key], key, collection))){
+             return false;
+         }
+     }
+ return true;
+ }
+}
 
 /** _.some
 * Arguments:
@@ -319,6 +429,31 @@ _.contains = function (arr, val) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some =  function(collection, action) {
+    if (action === undefined){
+        for(var i = 0; i < collection.length; i++) {
+            if (collection[i] === false) {
+                return false;
+            }
+        }
+        return true;
+    }
+    if (Array.isArray(collection)){
+        for(var i = 0; i < collection.length; i++) {
+            if(action(collection[i], i, collection)){
+                return true;
+            }
+        }    
+        return false;
+    } else if (typeof collection === 'object') {
+        for (var key in collection) {
+            if(action(collection[key], key, collection)){
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 /** _.reduce
 * Arguments:
@@ -339,6 +474,30 @@ _.contains = function (arr, val) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed) {
+    //check if seed exists/ not undefined
+       if(seed !== undefined) {
+          //if it does, then loop through array
+          for(var i = 0; i < array.length; i++) {
+              //reassign seed to be value of function call 
+             //call the func function on seed, value, index
+             seed = func(seed, array[i], i)
+          }
+          //return seed
+          return seed;
+       } else {
+           //if no seed given, first value in array is the seed
+           seed = array[0];
+           //if it does, then loop through array
+           for (var i = 1; i < array.length; i++) {
+             //reassign seed to be value of function call 
+             //call the func function on seed, value, index
+             seed = func(seed, array[i], i);
+           }
+           return seed;
+       }
+   
+   }
 
 /** _.extend
 * Arguments:
@@ -354,7 +513,12 @@ _.contains = function (arr, val) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+_.extend = function(obj1, ...obj2) {
 
+    var newObj = Object.assign(obj1, ...obj2)
+
+    return newObj;
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
