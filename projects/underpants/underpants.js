@@ -81,9 +81,9 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 _.first = function(arr, num) {
-    if (Array.isArray(arr) !== true || num <= 0) {
+    if (!Array.isArray(arr) || num <= 0) {
         return [];
-    } if (typeof num !== 'number' || num === undefined) {
+    } if (num === undefined) {
         return arr[0];
     } if (num > arr.length){
         return arr;
@@ -115,7 +115,7 @@ _.first = function(arr, num) {
 _.last = function(arr, num) {
     if (Array.isArray(arr) !== true || num <= 0) {
         return [];
-    } if (typeof num !== 'number' || num === undefined) {
+    } if (num === undefined) {
         return arr[arr.length - 1];
     } if (num > arr.length){
         return arr;
@@ -167,7 +167,7 @@ _.indexOf = function (arr, val) {
 */
 
 _.contains = function (arr, val) {
-    return (arr.includes(val)) ? true : false;
+    return arr.includes(val) ? true : false;
 }
 
 /** _.each
