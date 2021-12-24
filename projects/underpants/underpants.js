@@ -349,7 +349,7 @@ _.map = function(coll, func){
 */
 
 _.pluck = function(array, property){
-    let result = array.map(function(elem){
+    let result = _.map(array, function(elem){
         return elem[property];
     });
     return result;
