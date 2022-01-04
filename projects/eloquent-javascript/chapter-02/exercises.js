@@ -6,7 +6,7 @@
 function triangles(num) {
   var x='';
   for(let i = 0; i < num; i++){
-    x= '#'+ x;
+    x += '#';
     console.log( x );
   }
 }

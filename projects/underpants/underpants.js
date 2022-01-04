@@ -379,33 +379,31 @@ _.pluck = function(array, property){
 
 _.every = function(collection, action){
     if(action === undefined){
-     for (let i = 0; i < collection.length; i++){
-         if(collection[i] === false){
-             return false;
-         }
-     }
-     return true;
- }
- if(Array.isArray(collection)){
+        for (let i = 0; i < collection.length; i++){
+            if(collection[i] === false){
+                return false;
+            }
+        }
+        return true;
+    } else if(Array.isArray(collection)){
      // loop through array
-     for (let i = 0; i < collection.length; i++){
+        for (let i = 0; i < collection.length; i++){
          // call function on each index
-         if(!(action(collection[i], i, collection))){
-             return false;
-         }
-     }
-     return true;
- }
- else if (typeof collection === 'object'){
+            if(!(action(collection[i], i, collection))){
+                return false;
+            }
+        } 
+        return true;
+    } else if (typeof collection === 'object'){
      // loop through object
-     for (var key in collection){
+        for (var key in collection){
          // call function on each property
-         if(!(action(collection[key], key, collection))){
-             return false;
-         }
-     }
- return true;
- }
+            if(!(action(collection[key], key, collection))){
+                return false;
+            }
+        } 
+        return true;
+    }
 }
 
 /** _.some
