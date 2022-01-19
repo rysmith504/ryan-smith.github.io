@@ -63,6 +63,10 @@
  //
  
  console.log(1 - 1) // prints 0
+
+ console.log(5 + 5) // prints 10
+
+ console.log(4**2) // exponent operator => prints 16
  
   
  

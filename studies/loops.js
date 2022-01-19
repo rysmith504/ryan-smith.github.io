@@ -50,6 +50,13 @@
 
                                         //              'e'
 
+// example of for loop designed to move in reverse directions => prints to the console e, d, c, b, a
+function reverseLetters(arr){
+   for (var i = arr.length - 1; i > -1; i--){
+      console.log(arr[i])
+   }
+}                                        
+
 //a for in loop is good for looping through objects and accessing keys and values
 
 // two steps to define a for loop: how will you define the key and what object do you want to loop over
@@ -62,4 +69,11 @@
 
 }
 
- 
+//While Loop - 
+// uses 'while' keyword, while condition is true, code block will run within the while loop
+//example: this will print 1, 2, 3, ... 20
+var count = 0;
+while(count <= 19) {
+  count++
+  console.log(count);
+}

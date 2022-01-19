@@ -64,3 +64,25 @@ if(city === 'nola'){
   // let inside = 'bar';
   //console.log(inside) // prints 'bar'
 }
+
+//6. Hoisting
+/*
+before statements of a program are executed, all var and function declarations are dragged up to the top of the program (hoisted)
+
+var values do not throw referrors, instead say undef.  only the declaraions not the init is brought to top
+
+var and let values can be reassigned; const variables cant
+
+*/
+
+function double(num){
+  console.log(num * 2)
+}
+
+double(five); // => returns NaN because while 'five' declaration is hoisted to the top, the initialization is not
+var five = 5;
+
+/*
+block scoped - let and const are only accessible inside the code block in which they are initialized
+function scoped - var values will be stuck in the scope of a function but will not be stuck in the scope of an if or a for/while loop
+*/
