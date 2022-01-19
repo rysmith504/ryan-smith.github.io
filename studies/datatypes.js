@@ -102,4 +102,27 @@ var friends = ["andrew", "michael", "dakota"];
 
 // friends object with 3 properties with 3 indexes starting at andrew in the 0 index
 
+//function- set of statements that perform a task or calculate a value
+
+function myFunction(num1, num2) {
+
+    return num1 * num2;  
+
+//  The function returns the product of num1 and num2
+
+}
+
+// infinity and -infinity-
+
+// property of the global object. it is a variable in global scope.
+
+// Infinity is a numeric value that represents positive infinity.
+
+//-Infinity is represents negative infinity.
+
+// Infinity is displayed when a number exceeds the upper limit of the floating point numbers, which is 1.797693134862315E+308.
+
+//-Infinity is displayed when a number exceeds the lower limit of the floating point numbers, which is -1.797693134862316E+308.
+
+ 
  
