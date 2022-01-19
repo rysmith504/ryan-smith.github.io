@@ -38,7 +38,7 @@ var data = "string"; // => prints "string"
 
 // number- any integer positive or negative
 
-var num = 1; // => prints 1
+var num = 5; // => prints 5
 
  
 
