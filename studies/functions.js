@@ -188,6 +188,17 @@ function half(number) {
 
        */
 
+       //closure is the combination of function and the lexical enviornment in
+       //which the function is defined.closure give you access to the functions
+       //and variables outside the function.
+       function outer(){
+         const outerData ="outer";
+         function inner(){
+           const innerData="inner";
+           console.log(`${outerData} and{innerData}`);
+         }
+         inner();
+
        function exampleFunction() {
 
         var x = "declared inside function";  // x can only be used in exampleFunction
